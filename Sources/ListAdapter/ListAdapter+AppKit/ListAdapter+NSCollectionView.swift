@@ -113,4 +113,11 @@ public extension ListAdapter where View: NSCollectionView {
     }
 }
 
+public extension ListAdapter where View: NSCollectionView {
+    // MARK: - Getting the Size of Items
+    var layoutSizeForItem: ElementFunction<(IndexPath, NSCollectionViewLayout), CGSize, (ElementContext, NSCollectionViewLayout) -> CGSize> {
+        toFunction(#selector(NSCollectionViewDelegateFlowLayout.collectionView(_:layout:sizeForItemAt:)), \.0, toClosure())
+    }
+}
+
 #endif

@@ -127,4 +127,10 @@ extension Delegate: NSCollectionViewDelegate {
     }
 }
 
+extension Delegate: NSCollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+        apply(#selector(NSCollectionViewDelegateFlowLayout.collectionView(_:layout:sizeForItemAt:)), view: collectionView, with: (indexPath, collectionViewLayout), index: indexPath, default: (collectionViewLayout as? NSCollectionViewFlowLayout)?.itemSize ?? .zero)
+    }
+}
+
 #endif
