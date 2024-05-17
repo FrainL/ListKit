@@ -58,9 +58,9 @@ public extension NSCollectionView {
             reloadData()
             CATransaction.commit()
         }
-        if window != nil {
-            layout()
-        }
+//        if window != nil {
+//            layout()
+//        }
     }
 
     func perform(_ update: () -> Void, animated: Bool, completion: ((Bool) -> Void)? = nil) {
